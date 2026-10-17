@@ -74,3 +74,41 @@ Os serviços iniciam automaticamente com dados pré-populados para testes:
 - **Cliente 1 (Aprovável):** CPF `12345678900` | Nome: Ana Silva | Renda: R$ 7.500,00 | Saldo: R$ 12.500,00
 - **Cliente 2 (Aprovável):** CPF `98765432100` | Nome: Carlos Eduardo Oliveira | Renda: R$ 12.000,00 | Saldo: R$ 45.800,50
 - **Cliente 3 (Reprovado SCR):** CPF `55544433399` | Nome: Mariana Souza | Restrição ativa no SCR
+
+
+# FIAP - Checkpoint 5 (CP5) - Arquitetura DDD e Java
+
+## 👤 Aluno Responsável
+* **Nome:** Kimberly Kristina
+* **RM:** 564080
+* **Turma:** ESPG
+
+---
+
+## 🚀 Sobre o Projeto (Core Bancário)
+Implementação do componente **Core Bancário** desenvolvido do zero para o FIAP Bank, seguindo rigorosamente os princípios de **Domain-Driven Design (DDD)** e arquitetura **Maven Multi-Módulo** com **Spring Boot 3.2.0** e **Java 21**.
+
+### 🏛️ Estrutura de Módulos
+O projeto está dividido nos seguintes módulos independentes:
+1. **`domain`**: Contém o modelo de domínio puro (Entidades e Interfaces de Repositório), sem acoplamento com frameworks.
+2. **`application`**: Contém os Casos de Uso e DTOs com validações (`Jakarta Validation`).
+3. **`infrastructure`**: Contém os adaptadores de persistência, mapeamento JPA e integração com banco de dados em memória (`H2`).
+4. **`presentation`**: Contém os controladores RESTful (`Controllers`), o tratamento global de exceções (`@RestControllerAdvice`) e a classe de inicialização da aplicação (`Spring Boot`).
+
+---
+
+## ⚙️ Como Executar o Core Bancário
+
+Para rodar o microsserviço do Core Bancário de forma independente na porta `8080`:
+
+1. Certifique-se de estar na pasta do projeto:
+   ```bash
+   cd fiap-bank-core-bancario
+
+2. Compile o projeto multi-módulo:
+   ```bash
+   mvn clean install
+
+3. Execute a aplicação:
+   ```bash
+   mvn spring-boot:run -pl presentation
